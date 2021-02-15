@@ -141,6 +141,7 @@ trait DOMElements {
         echo "</tbody></table>";
         $this->__destruct();
     }
+    
 }
 
 trait Inputs {
