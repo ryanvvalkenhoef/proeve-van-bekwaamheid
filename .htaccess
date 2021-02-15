@@ -1,0 +1,8 @@
+<FilesMatch "\.(htaccess|ini)$">
+        Order Allow,Deny
+        Deny from all
+</FilesMatch>
+
+DirectoryIndex login.php
+
+ErrorDocument 404 /error/404.php
