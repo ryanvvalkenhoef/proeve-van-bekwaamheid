@@ -3,6 +3,6 @@
         Deny from all
 </FilesMatch>
 
-DirectoryIndex login.php
+DirectoryIndex index.php
 
 ErrorDocument 404 /error/404.php
