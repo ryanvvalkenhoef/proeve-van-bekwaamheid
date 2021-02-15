@@ -1,0 +1,19 @@
+#popup-bar {
+    height: 35px;
+    position: relative;
+    border: 1px solid rgba(18, 130, 18, 0.77);
+    color: rgba(18, 130, 18, 0.77);
+    border-radius: 5px;
+    background-color: rgb(181, 255, 181);
+    font-size: 0.95rem;
+    padding: 13px;
+    margin: 4px;
+  }
+  
+.vertical-center {
+    margin: 0;
+    position: absolute;
+    top: 50%;
+    -ms-transform: translateY(-50%);
+    transform: translateY(-50%);
+  }
