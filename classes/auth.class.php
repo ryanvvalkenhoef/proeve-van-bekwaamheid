@@ -1,6 +1,7 @@
 <?php
 
 ini_set('display_errors', 1);
+define("table", $SERVER['PHP_SELF']);
 
 class Auth extends DB {
     
@@ -20,7 +21,7 @@ class Auth extends DB {
             $errorMsg[] = "Please enter password";
         } else {
             try {
-                $stmt = $this->connect()->prepare("SELECT * FROM `tbl_users` WHERE `username`=:username OR `email`=:email");
+                $stmt = $this->connect()->prepare("SELECT * FROM " . constant("table") . " WHERE `username`=:username OR `email`=:email");
                 $stmt->execute(array(':username' => $username_email, ':email' => $username_email));
                 $user = $stmt->fetch(PDO::FETCH_ASSOC);
 
@@ -59,12 +60,14 @@ class Auth extends DB {
         session_start();
         // Direct back to login page if not authorized
         if (!isset($_SESSION['user_login'])) {
-            header("Location: ./login.php");
+            $table = constant("table");
+            $prefix = ($table == "admin-users") ? "/" . $table : "";
+            header("Location: ." . $prefix ."/login.php");
         }
 
         // Execute query with id of the session
         $id = $_SESSION['user_login'];
-        $query = "SELECT * FROM `tbl_users` WHERE `id`=:userid";
+        $query = "SELECT * FROM " . constant("table") . " WHERE `id`=:userid";
         $stmt = $this->connect()->prepare($query);
         $stmt->execute(array(':userid' => $id));
 

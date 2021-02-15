@@ -1,14 +1,15 @@
 <?php
 
 ini_set('display_errors', 1);
+define("table", $SERVER['PHP_SELF']);
 
-trait AdminUsers {
+trait Users {
 
     use DOMElements, Inputs;
 
     public function read($getsUpdated) {
         $addition = $getsUpdated ? " WHERE `id`=:id" : "";
-        $query = "SELECT * FROM `tbl_users`" . $addition;
+        $query = "SELECT * FROM " . constant("table") . " " . $addition;
 
         try {
             $stmt = $this->connect()->prepare($query);
@@ -36,7 +37,7 @@ trait AdminUsers {
         $inputs = $this->getValidated();
 
         // Make query for database
-        $query = "UPDATE `tbl_users` ";
+        $query = "UPDATE " . $_SERVER['PHP_SELF'];
         $query .= "SET `firstname`=?, `lastname`=?, `email`=?, `username`=?, `password`=?";
         $query .= "WHERE `id`=?";
 
@@ -69,7 +70,7 @@ trait AdminUsers {
         $inputs = $this->getValidated();
 
         // Make query for database
-        $query = "INSERT INTO `tbl_users` ";
+        $query = "INSERT INTO " . $_SERVER['PHP_SELF'];
         $query .= "(`id`, `firstname`, `lastname`, `email`, `username`, `password`, `registration`) ";
         $query .= "VALUES(NULL, ?, ?, ?, ?, ?, ?) ";
 
@@ -99,7 +100,7 @@ trait AdminUsers {
     public function delete() {
 
         // Make query for database
-        $query = "DELETE FROM `tbl_users` ";
+        $query = "DELETE FROM " . $_SERVER['PHP_SELF'];
         $query .= "WHERE id=:id ";
         $query .= "LIMIT 1";
 
@@ -238,5 +239,5 @@ trait Inputs {
 
 class CRUD extends DB {
 
-    use AdminUsers;
+    use Users;
 }
