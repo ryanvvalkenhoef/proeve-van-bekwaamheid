@@ -1,0 +1,10 @@
+# Redirect to front controller
+RewriteEngine On
+# RewriteBase
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteRule ^ index.php [QSA,L]
+
+<FilesMatch "\.(htaccess|ini)$">
+        Order Allow,Deny
+        Deny from all
+</FilesMatch>

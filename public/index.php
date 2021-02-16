@@ -1,5 +1,5 @@
 <?php
-  require_once 'includes/autoloader.php';
+  (require __DIR__ . '/../config/bootstrap.php')->run();
 ?>
 <!DOCTYPE html>
 <html lang='en'>
@@ -8,9 +8,8 @@
 	<meta name='description' content='Basic loginsystem'>
 	<meta name='viewport' content='width=device-width, initial-scale=1.0'>
 	<meta http-equiv='x-ua-compatible' content='ie=edge'>
-	<link href='resources/css/bootstrap.min.css' rel='stylesheet'>
-	<link href='resources/ccs/custom.css' rel='stylesheet'>
-	<title>Basic Login System</title>
+	<link href='resources/ccs/style.css' rel='stylesheet'>
+	<title>Registreren</title>
 </head>
 <body>
 	<div id="popup-bar">

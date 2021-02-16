@@ -1,5 +1,8 @@
 config.ini
 
+vendor/
+.idea/
+
 # Windows OS Files
 Thumbs.db
 Desktop.ini

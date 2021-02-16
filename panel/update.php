@@ -25,7 +25,7 @@
 				<div class='col-lg-4 col-lg-offset-4'>
 					<h3>Update Data</h3>
 					<hr/>
-					<form name='update' id='update' action='action_completed.php?id=<?php echo $user['id'] ?>' enctype="multipart/form-data" method='post'>
+					<form name='update' id='update' action='order_completed.php?id=<?php echo $user['id'] ?>' enctype="multipart/form-data" method='post'>
 						<div class='form-group'>
 							<label for='firstname'>Firstname</label>
 							<input value='<?php echo $user['firstname'] ?>' name='firstname' id='firstname' type='text' class='form-control' placeholder='firstname' />

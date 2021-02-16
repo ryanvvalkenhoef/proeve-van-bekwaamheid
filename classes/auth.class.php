@@ -37,7 +37,7 @@ class Auth extends DB {
                         }
                     } else { 
                         $errorMsg[] = "Wrong username or email";
-                     }
+                    }
                 } else {
                     $errorMsg[] = "Wrong username or email";
                 }
