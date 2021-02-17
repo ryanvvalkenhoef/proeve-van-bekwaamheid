@@ -1,3 +1,11 @@
-RewriteEngine on
-RewriteRule ^$ public/ [L]
-RewriteRule (.*) public/$1 [L]
+<FilesMatch "\.(htaccess|ini)$">
+  Order Allow,Deny
+  Deny from all
+</FilesMatch>
+
+<IfModule mod_rewrite.c>
+  RewriteEngine On
+  RewriteRule ^$ public/ [L]
+  RewriteCond %{REQUEST_URI} !^/public/? [NC]
+  RewriteRule (.+) public/$1 [L]
+</IfModule>
