@@ -2,7 +2,7 @@
 
 class Database {
     
-    private $config;
+    public $config;
     protected $conn;
 
     private $statement;
@@ -10,7 +10,7 @@ class Database {
 
     // Called automatically upon initiation
     public function __construct() {
-        $this->config = parse_ini_file('config/config.ini', true);
+        $this->config = parse_ini_file('../config/config.ini', true);
     }
 
     // Connects to the database

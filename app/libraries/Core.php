@@ -6,7 +6,7 @@
    */
 class Core {
 
-    protected $currentController = 'Pages';
+    protected $currentController = 'Frontpages';
     protected $currentMethod = 'index';
     protected $params = [];
 
@@ -14,6 +14,16 @@ class Core {
 
         $url = $this->getUrl();
 
+        // Check if the first part of the url don't refers to a controller
+        if(!file_exists('../app/controllers/' . ucwords($url[0]) . '.php')) {
+            // To refer to files in 'frontpages' and 'customers', these parts
+            // of the url should not be required. Insert them if they're not provided.
+            if (file_exists('../app/views/' . $url[0] . '.php')) {
+                array_splice($url, 0, 0, 'frontpages');
+            } else if (file_exists('../app/views/customers/' . $url[0] . '.php')) {
+                array_splice($url, 0, 0, 'customers');
+            }
+        }
         // Look in 'controllers' for first value.
         // The first letter of the first part of the url will be capitalized with ucwords
         if (file_exists('../app/controllers/' . ucwords($url[0]) . '.php')) {
@@ -21,6 +31,8 @@ class Core {
             $this->currentController = ucwords($url[0]);
             // Unset 0 Index
             unset($url[0]);
+        } else {
+            // Return 404 page
         }
 
         // Require the controller

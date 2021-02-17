@@ -1,4 +1,4 @@
-<?php require APPROOT . '/view/includes/head.php'; ?>
+<?php require APPROOT . '/views/includes/head.php'; ?>
 <div class="navbar">
 	<?php require APPROOT . '/views/includes/navigation.php'; ?>
 </div>
@@ -6,7 +6,7 @@
 	<div class="wrapper-login">
 		<h2>Beheerderspaneel</h2>
 		<hr />
-		<form name="signin" id="signin" action="<?php echo URLROOT; ?>/admin-panel/login" enctype="multipart/form-data" method="POST">
+		<form name="signin" id="signin" action="<?php echo URLROOT; ?>/admins/login" enctype="multipart/form-data" method="POST">
 			<span class="login-feedback">
 				<?php if (isset($data['loginFeedback'])) echo $data['loginFeedback']; ?>
 			</span>

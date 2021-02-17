@@ -20,10 +20,10 @@ class Customers extends Controller {
             $_POST = filter_input_array(INPUT_POST, FILTER_SANITIZE_STRING);
 
             $data = [
-                'username' => trim($data['username']),
-                'email' => trim($data['email']),
-                'password' => trim($data['password']),
-                'confirmPassword' => trim($data['confirmPassword']),
+                'username' => trim($_POST['username']),
+                'email' => trim($_POST['email']),
+                'password' => trim($_POST['password']),
+                'confirmPassword' => trim($_POST['confirmPassword']),
                 'errors' => [],
                 'registerFeedback' => ''
             ];
@@ -87,7 +87,7 @@ class Customers extends Controller {
     public function login() {
         $data = [
             'title' => 'Inloggen',
-            'username_email' => '',
+            'login' => '',
             'password' => '',
             'errors' => [],
             'loginFeedback' => ''
@@ -99,7 +99,7 @@ class Customers extends Controller {
             $_POST = filter_input_array(INPUT_POST, FILTER_SANITIZE_STRING);
 
             $data = [
-                'username_email' => trim($_POST['username_email']),
+                'login' => trim($_POST['login']),
                 'password' => trim($_POST['password']),
                 'errors' => [],
                 'loginFeedback' => ''
@@ -116,8 +116,8 @@ class Customers extends Controller {
             }
 
             // Check if all errors are empty
-            if (empty($data['username_email']) && empty($data['password'])) {
-                $loggedInCustomer = $this->usermodel->login($data['username_email'], $data['password']);
+            if (empty($data['login']) && empty($data['password'])) {
+                $loggedInCustomer = $this->usermodel->login($data['login'], $data['password']);
 
                 if ($loggedInCustomer) {
                     $data['loginFeedback'] = 'U bent succesvol ingelogd.';
@@ -130,7 +130,7 @@ class Customers extends Controller {
             }
         } else {
             $data = [
-                'username_email' => '',
+                'login' => '',
                 'password' => '',
                 'errors' => [],
                 'loginFeedback' => ''
@@ -146,7 +146,7 @@ class Customers extends Controller {
         unset($_SESSION['email']);
 
         // Redirect to the homepage
-        header('location: ' . URLROOT . '/customers/login');
+        header('location: ' . URLROOT . '/login');
     }
 
     public function createCustomerSession($customer) {

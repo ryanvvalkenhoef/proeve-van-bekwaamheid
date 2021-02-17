@@ -1,4 +1,4 @@
-<?php require APPROOT . '/view/includes/head.php'; ?>
+<?php require APPROOT . '/views/includes/head.php'; ?>
 <div class="navbar">
     <?php require APPROOT . '/views/includes/navigation.php'; ?>
 </div>
@@ -6,7 +6,7 @@
     <div class="wrapper-register">
         <h2>Registreren</h2>
         <hr />
-        <form name="signup" id="signup" action="<?php echo URLROOT; ?>/customers/register" enctype="multipart/form-data" method="POST">
+        <form name="signup" id="signup" action="<?php echo URLROOT; ?>/projectweek-2/login" enctype="multipart/form-data" method="POST">
             <span class="register-feedback">
 				<?php if (isset($data['registerFeedback'])) echo $data['registerFeedback']; ?>
 			</span>
@@ -31,13 +31,13 @@
                 <input name="password" id="password" type="password" class='form-control' placeholder="Wachtwoord *" style="cursor:text; background-color:#fff;" onfocus="this.removeAttribute('readonly');" readonly required />
             </div>
             <div class='form-group'>
-				<label for='password'>Wachtwoord bevestigen</label>
-				<input name="confirm-password" id="password" type="password" class='form-control' placeholder="Wachtwoord *" style="cursor:text; background-color:#fff;" onfocus="this.removeAttribute('readonly');" readonly required />
+				<label for='confirm-password'>Wachtwoord bevestigen</label>
+				<input name="confirm-password" id="confirm-password" type="password" class='form-control' placeholder="Wachtwoord bevestigen *" style="cursor:text; background-color:#fff;" onfocus="this.removeAttribute('readonly');" readonly required />
             </div>
             <div class='form-group'>
                 <button name="submit" id="submit" class="btn-signup">Registreren</button>
             </div>
-            <p class="options">Heb je al een account? <a href="<?php echo URLROOT; ?>/customers/login">Nu inloggen</a></p>
+            <p class="options">Heb je al een account? <a href="<?php echo URLROOT; ?>/projectweek-2/login">Nu inloggen</a></p>
         </form>
     </div>
 </div>

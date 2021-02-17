@@ -1,4 +1,4 @@
-<?php require APPROOT . '/view/includes/head.php'; ?>
+<?php require APPROOT . '/views/includes/head.php'; ?>
 <div class="navbar">
 	<?php require APPROOT . '/views/includes/navigation.php'; ?>
 </div>
@@ -6,7 +6,7 @@
 	<div class="wrapper-login">
 		<h2>Inloggen</h2>
 		<hr />
-		<form name="signin" id="signin" action="<?php echo URLROOT; ?>/customers/login" enctype="multipart/form-data" method="POST">
+		<form name="signin" id="signin" action="<?php echo URLROOT; ?>/projectweek-2/login" enctype="multipart/form-data" method="POST">
 			<span class="login-feedback">
 				<?php if (isset($data['loginFeedback'])) echo $data['loginFeedback']; ?>
 			</span>
@@ -20,7 +20,7 @@
             </span>
 			<div class="form-group">
 				<label for="username_email">Login</label>
-				<input name="username_email" id="username_email" type="text" class="form-control" placeholder="Gebruikersnaam of e-mailadres *" style="cursor:text; background-color:#fff;" onfocus="this.removeAttribute('readonly');" readonly required />
+				<input name="username_email" id="username_email" type="text" class="form-control" placeholder="Gebruikersnaam of e-mail *" style="cursor:text; background-color:#fff;" onfocus="this.removeAttribute('readonly');" readonly required />
 			</div>
 			<div class='form-group'>
 				<label for='password'>Wachtwoord</label>
@@ -29,7 +29,7 @@
 			<div class='form-group'>
 				<button name="submit" id="submit" class="btn-signin">Inloggen</button>
 			</div>
-            <p class="options">Ben je nog niet aangemeld? <a href="<?php echo URLROOT; ?>/customers/register">Maak een account</a></p>
+            <p class="options">Ben je nog niet aangemeld? <a href="<?php echo URLROOT; ?>/projectweek-2/register">Maak een account</a></p>
 		</form>
 	</div>
 </div>

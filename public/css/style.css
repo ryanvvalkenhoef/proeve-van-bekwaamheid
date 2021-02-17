@@ -4,60 +4,106 @@ box-color   : rgba(103, 182, 212, 0.25)
 red         : #d93d3d
 */
 
-html, body {
-    font-family: 'Helvetica Neue';
-}
-
-.side-nav { display: block; }
-
-.side-nav ul {
+html,
+body {
+    font-family: Helvetica Neue, Arial, sans-serif;
     margin: 0;
-    padding: 0;
+}
+
+/* General styles */
+
+hr {
+    float: left;
+    width: 120px;
+    border: 2px solid white;
+}
+
+.wrapper-landing {
     position: absolute;
-    right: 6%;
-    top: 2%;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: rgba(103, 182, 212, 0.25);
+    padding: 20px;
+    width: 60%;
+    height: 60%;
+    box-shadow: 0 0 8px rgba(0, 0, 0, 0.1);
+    margin: 0 auto;
 }
 
-.side-nav ul li {
-    display: inline-block;
-    margin-left: 28px;
+.heading {
+    font-family: inherit;
+    font-variant: normal;
+    font-style: normal;
+    font-weight: 800;
+    margin: 10%;
+    font-size: 3.5rem;
+    text-decoration: underline;
 }
 
-.side-nav ul li a {
+
+/* Navigation */
+
+.side-nav ul, .login-nav ul {
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
+    flex-wrap: wrap;
+    width: 260px;
+    height: 200px;
+    position: absolute;
+}
+
+.side-nav ul li,
+.login-nav ul li {
+    list-style-type: none;
+    width: 100%;
+    padding: 10px;
+    border: 3.5px solid rgb(223, 223, 223);
+    text-align: center;
+}
+
+.side-nav ul li a,
+.login-nav ul li a {
     color: white;
     text-decoration: none;
-    font-size: 18px;
+    font-size: 1.4rem;
 }
 
-.side-nav ul li a:hover {
-    color: #afafaf;
+.side-nav ul li a:hover,
+.login-nav ul li a:hover {
+    background-color: #67B6D4;
     transition: 0.15s ease-in;
 }
 
+.login-nav ul {
+    right: 10px;
+    width: 170px;
+    height: 50px;
+}
+
+.login-nav ul li { border: 2px solid white; }
+
+.login-nav ul li a {
+    color: white;
+    text-decoration: none;
+    font-size: 1.3rem;
+}
+
+
+/* background img every page */
 #section-landing {
-    background: url('../img/background.jpeg');
+    padding: 20px;
+    background: url('../img/background.png');
     background-size: cover;
-    background-position: center;
+    background-position: top;
     background-repeat: no-repeat;
     height: 100%;
     width: 100%;
 }
 
-.vertical-center {
-    margin: 0;
-    position: absolute;
-    top: 50%;
-    -ms-transform: translateY(-50%);
-    transform: translateY(-50%);
-}
 
-.wrapper-landing {
-    position: relative;
-    text-align: center;
-    margin: 0 auto;
-    top: 40%;
-}
-
+/* Navigation for login */
 h1 {
     font-size: 48px;
     color: white;
@@ -74,6 +120,8 @@ btn-login {
     width: 100%;
     height: 70%;
 }
+
+/* Login page */
 
 .container-login {
     width: 100%;
@@ -133,4 +181,12 @@ input::placeholder {
 
 .invalid-feedback {
     color: #d93d3d;
+}
+
+/* Text for about */
+
+.container-text {
+    float: left;
+    color: white;
+    padding: 0px;
 }

@@ -1,22 +1,28 @@
 <nav class="side-nav">
     <ul>
         <li>
-            <a href="<?php echo URLROOT; ?>/pages/index">Home</a>
+            <a class="nav-link" href="<?php echo URLROOT; ?>/projectweek-2/index">HOME</a>
         </li>
         <li>
-            <a href="<?php echo URLROOT; ?>/pages/events">Events</a>
+            <a class="nav-link" href="<?php echo URLROOT; ?>/projectweek-2/events">EVENTS</a>
         </li>
         <li>
-            <a href="<?php echo URLROOT; ?>/pages/about">About</a>
+            <a class="nav-link" href="<?php echo URLROOT; ?>/projectweek-2/about">ABOUT</a>
         </li>
-        <li class="btn-login">
-            <!-- Check if a session is present -->
-            <?php
-            if (isset($_SESSION['customer_id'])) : ?>
-                <a href="<?php echo URLROOT; ?>/customers/logout">Uitloggen</a>
-            <?php else : ?>
-                <a href="<?php echo URLROOT; ?>/customers/login">Inloggen</a>
-            <?php endif; ?>
-        </li>
+    </ul>
+</nav>
+<nav class="login-nav">
+    <ul>
+        <!-- Check if a session is present -->
+        <?php
+        if (isset($_SESSION['customer_id'])) : ?>
+            <li>
+                <a href="<?php echo URLROOT; ?>/projectweek-2/logout">UITLOGGEN</a>
+            </li>
+        <?php else : ?>
+            <li>
+                <a href="<?php echo URLROOT; ?>/projectweek-2/login">INLOGGEN</a>
+            </li>
+        <?php endif; ?>
     </ul>
 </nav>
