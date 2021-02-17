@@ -1,3 +1,7 @@
+Options +FollowSymLinks
+RewriteEngine On
+AddDefaultCharset UTF-8
+
 <FilesMatch "\.(htaccess|ini)$">
   Order Allow,Deny
   Deny from all
@@ -5,7 +9,16 @@
 
 <IfModule mod_rewrite.c>
   RewriteEngine On
-  RewriteRule ^$ public/ [L]
-  RewriteCond %{REQUEST_URI} !^/public/? [NC]
-  RewriteRule (.+) public/$1 [L]
+  ## Front urls
+  RewriteRule ^$ public/index.php [L,QSA]
+  RewriteRule ^about$ app/views/about.php [L,QSA]
+  RewriteRule ^about$ app/views/events.php [L,QSA]
+  RewriteRule ^login$ app/views/login.php [L,QSA]
+  RewriteRule ^login$ app/views/register.php [L,QSA]
+
+  #RewriteRule ^.(.*)$ public/index.php [L,QSA]
+
+  ## Admin panel urls
+  RewriteRule ^admin-panel$ app/views/admin-panel/index.php [L,QSA]
+  RewriteRule ^admin-panel/(.*)$ app/views/admin-panel/index.php?page=$1 [L,QSA]
 </IfModule>
