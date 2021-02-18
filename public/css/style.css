@@ -70,8 +70,8 @@ hr {
     font-size: 1.4rem;
 }
 
-.side-nav ul li a:hover,
-.login-nav ul li a:hover {
+.side-nav ul li:hover,
+.login-nav ul li:hover {
     background-color: #67B6D4;
     transition: 0.15s ease-in;
 }
@@ -168,14 +168,14 @@ input::placeholder {
 }
 
 #submit:hover {
-    border: 1px solid a1a1a1;
-    background-color: a1a1a1;
-    transition: 0.15s ease-in;
+    border: 1px solid #a1a1a1;
+    background-color: #67B6D4;
+    transition: 0.02s ease-in;
 }
 
 .options a {
     color: #67B6D4;
-    transition: 0.20s ease-in;
+    transition: 0.02s ease-in;
     text-decoration: none;
 }
 
