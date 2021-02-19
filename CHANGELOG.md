@@ -2,7 +2,7 @@
 
 
 #Changelog 0.3
--navigation added
+-Navigation added
 -Fixed swiper
 -Fixed config
 
@@ -18,7 +18,3 @@
 #Change log 0.1
 -Setting up user environment
 -Setting up admin environment
-
-
-
-

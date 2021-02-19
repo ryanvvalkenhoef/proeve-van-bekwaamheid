@@ -12,13 +12,9 @@
             <span class="invalid-feedback">
                 <?php
                     // Check for error's and display if present
-                    if (isset($data['errors'])) {
-                        if (count($data['errors']) > 1) {
-							foreach ($data['errors'] as $error) echo '- ' . $error . '<br />';
-						} else {
-							echo $data['errors'][0] . '<br />';
-						}
-                    } 
+                    if (isset($data['errors']) && !empty($data['errors'])) {
+                        foreach ($data['errors'] as $error) echo ((count($data['errors']) > 1) ? '- ' : '') . $error . '<br />';
+                    }
                 ?>
             </span>
 			<div class="form-group">

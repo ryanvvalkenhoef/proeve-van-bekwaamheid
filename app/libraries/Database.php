@@ -9,7 +9,7 @@ class Database {
 
     // Called automatically upon initiation
     public function __construct() {
-        $this->config = parse_ini_file('app/config/config.ini', true);
+        $this->config = parse_ini_file('../config/config.ini', true);
     }
 
     // Connects to the database
