@@ -6,7 +6,6 @@ class Database {
     protected $conn;
 
     private $statement;
-    private $error;
 
     // Called automatically upon initiation
     public function __construct() {
@@ -22,7 +21,6 @@ class Database {
             $this->conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION); // Sets error mode
         } catch (PDOException $e) {
             file_put_contents("log/dberror.log", "Date: " . date('M j Y - G:i:s') . " ---- Error: " . $e->getMessage().PHP_EOL, FILE_APPEND);
-            $this->error = $e->getmessage();
             die($e->getMessage()); // Log and display error in the event that there is an issue connecting
         }
         $conn = $this->conn;
