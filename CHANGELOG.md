@@ -1,11 +1,24 @@
-# Change Log
+##Change log
 
-All notable changes to Event-manager will be documented in this file.
 
-## [Unreleased](https://)
+#Changelog 0.3
+-navigation added
+-Fixed swiper
+-Fixed config
 
-Here we write upgrading notes for brands. It's a team effort to make them as straightforward as possible.
 
-### Added
-- [Event-manager]()
-MINOR 
+
+#Change log 0.2 
+-Added login page
+-Added admin panels 
+-Added event/index/about page
+
+
+
+#Change log 0.1
+-Setting up user environment
+-Setting up admin environment
+
+
+
+
