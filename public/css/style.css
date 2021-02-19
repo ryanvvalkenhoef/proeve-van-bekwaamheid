@@ -7,6 +7,10 @@ red         : #d93d3d
 html,
 body {
     font-family: Helvetica Neue, Arial, sans-serif;
+    background: url('../img/background_1.png');
+    background-size: cover;
+    background-position: top;
+    background-repeat: no-repeat;
     margin: 0;
 }
 
@@ -84,10 +88,6 @@ hr {
 /* background img every page */
 #section-landing {
     padding: 20px;
-    background: url('../img/background_1.png');
-    background-size: cover;
-    background-position: top;
-    background-repeat: no-repeat;
     height: 100%;
     width: 100%;
 }
