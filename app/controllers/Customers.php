@@ -81,6 +81,7 @@ class Customers extends Controller {
             }
         }
 
+        $this->view('includes/head', ['title' => 'Registreren']);
         $this->view('customers/register', $data);
     }
 
@@ -125,6 +126,7 @@ class Customers extends Controller {
                 } else {
                     $data['errors'][] = 'De gebruikersnaam en/of het wachtwoord is foutief, probeer het alstublieft opnieuw.';
 
+                    $this->view('includes/head', ['title' => 'Inloggen']);
                     $this->view('customers/login', $data);
                 }
             }
@@ -137,6 +139,7 @@ class Customers extends Controller {
             ];
         }
 
+        $this->view('includes/head', ['title' => 'Inloggen']);
         $this->view('customers/login', $data);
     }
 

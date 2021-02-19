@@ -10,8 +10,7 @@ body {
     margin: 0;
 }
 
-/* General styles */
-
+/* || General styles */
 hr {
     float: left;
     width: 120px;
@@ -32,18 +31,11 @@ hr {
 }
 
 .heading {
-    font-family: inherit;
-    font-variant: normal;
-    font-style: normal;
-    font-weight: 800;
     margin: 10%;
-    font-size: 3.5rem;
-    text-decoration: underline;
+    font-size: 1.5rem;
 }
 
-
 /* Navigation */
-
 .side-nav ul, .login-nav ul {
     display: flex;
     justify-content: space-between;
@@ -52,6 +44,12 @@ hr {
     width: 260px;
     height: 200px;
     position: absolute;
+}
+
+.login-nav ul {
+    right: 10px;
+    width: 170px;
+    height: 50px;
 }
 
 .side-nav ul li,
@@ -63,23 +61,15 @@ hr {
     text-align: center;
 }
 
-.side-nav ul li a,
-.login-nav ul li a {
+.nav-link {
     color: white;
     text-decoration: none;
     font-size: 1.4rem;
 }
 
-.side-nav ul li:hover,
-.login-nav ul li:hover {
+.nav-link:active {
     background-color: #67B6D4;
     transition: 0.15s ease-in;
-}
-
-.login-nav ul {
-    right: 10px;
-    width: 170px;
-    height: 50px;
 }
 
 .login-nav ul li { border: 2px solid white; }
@@ -94,7 +84,7 @@ hr {
 /* background img every page */
 #section-landing {
     padding: 20px;
-    background: url('../img/background.png');
+    background: url('../img/background_1.png');
     background-size: cover;
     background-position: top;
     background-repeat: no-repeat;
@@ -122,7 +112,6 @@ btn-login {
 }
 
 /* Login page */
-
 .container-login {
     width: 100%;
     margin: 0 auto;
@@ -184,7 +173,6 @@ input::placeholder {
 }
 
 /* Text for about */
-
 .container-text {
     float: left;
     color: white;

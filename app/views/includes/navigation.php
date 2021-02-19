@@ -13,15 +13,14 @@
 </nav>
 <nav class="login-nav">
     <ul>
-        <!-- Check if a session is present -->
-        <?php
+        <?php // Check if a customer session is present
         if (isset($_SESSION['customer_id'])) : ?>
             <li>
-                <a href="<?php echo URLROOT; ?>/projectweek-2/logout">UITLOGGEN</a>
+                <a class="nav-link" href="<?php echo URLROOT; ?>/projectweek-2/logout">UITLOGGEN</a>
             </li>
         <?php else : ?>
             <li>
-                <a href="<?php echo URLROOT; ?>/projectweek-2/login">INLOGGEN</a>
+                <a class="nav-link" href="<?php echo URLROOT; ?>/projectweek-2/login">INLOGGEN</a>
             </li>
         <?php endif; ?>
     </ul>

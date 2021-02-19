@@ -1,4 +1,3 @@
-<?php require APPROOT . '/views/includes/head.php'; ?>
 <div class="navbar">
     <?php require APPROOT . '/views/includes/navigation.php'; ?>
 </div>
@@ -14,8 +13,12 @@
                 <?php
                     // Check for error's and display if present
                     if (isset($data['errors'])) {
-                        foreach ($data['errors'] as $error) echo '- ' . $error . '<br />';
-                    } 
+                        if (count($data['errors']) > 1) {
+							foreach ($data['errors'] as $error) echo '- ' . $error . '<br />';
+						} else {
+							echo $data['errors'][0] . '<br />';
+						}
+                    }
                 ?>
             </span>
             <div class="form-group">
