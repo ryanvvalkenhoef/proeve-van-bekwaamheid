@@ -37,6 +37,8 @@ class Frontpages extends Controller {
 
         $modules = $this->crudModel->read('elective_modules');
 
+        var_dump($modules);
+
         $data['modules'] = ($modules) ? $modules : [];
 
         $this->view('includes/head', $data);

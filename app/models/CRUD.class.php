@@ -6,20 +6,20 @@ class CRUD extends Database {
     public function read($table, $id = null, $searchParams = null) {
         $addition = $id ? " WHERE `id`=:id" : "";
         $search = '';
-        if (count($searchParams) == 1) {
+        if ($searchParams != null && count($searchParams) == 1) {
             switch ($table) {
                 case 'users':
-                    $search = $searchParams ? " WHERE `name` LIKE :searchParam OR `email` LIKE :searchParam OR `username` LIKE :searchParam" : "";
+                    $search = " WHERE `name` LIKE :searchParam OR `email` LIKE :searchParam OR `username` LIKE :searchParam";
                   break;
                 case 'reservations':
-                    $search = $searchParams ? " WHERE reservations.reserved_for LIKE :searchParam OR reservations.receipt LIKE :searchParam OR elective_modules.title LIKE :searchParam" : "";
+                    $search = " WHERE reservations.reserved_for LIKE :searchParam OR reservations.receipt LIKE :searchParam OR elective_modules.title LIKE :searchParam";
                   break;
                 case 'elective_modules':
-                    $search = $searchParams ? " WHERE `title` LIKE :searchParam OR `author` LIKE :searchParam OR `category` LIKE :searchParam" : "";
+                    $search = " WHERE `title` LIKE :searchParam OR `author` LIKE :searchParam OR `category` LIKE :searchParam";
                   break;
               }
-        } else if (count($searchParams) > 1) {
-            $search = $searchParams ? " WHERE `creation_date` LIKE :searchParam1 AND `module_name` LIKE :searchParam2 LIMIT 1" : "";
+        } else if ($searchParams != null && count($searchParams) > 1) {
+            $search = " WHERE `creation_date` LIKE :searchParam1 AND `module_name` LIKE :searchParam2 LIMIT 1";
         }
         $query = ($table == 'reservations') ? "SELECT reservations.*, elective_modules.title AS module_title FROM reservations JOIN elective_modules ON reservations.module_id = elective_modules.id" : "SELECT * FROM " . $table;
 

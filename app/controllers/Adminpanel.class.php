@@ -192,7 +192,7 @@ class Adminpanel extends Controller {
             }
         }
 
-        $this->view('includes/head', ['title' => 'Reservations']);
+        $this->view('includes/head', ['title' => 'Reserveringen']);
         $this->view('admin/reservations', $data);
     }
 

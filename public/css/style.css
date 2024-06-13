@@ -57,14 +57,14 @@ h1 {
     font-weight: 100;
 }
 
-btn-login {
+.btn-login {
     border: 1px solid white;
     padding: 6px 24px;
 }
 
 .navbar {
     inline-size: 100%;
-    margin-inline:
+    margin-inline: auto;
 }
 
 /* -- Login page */
@@ -160,12 +160,21 @@ body {
     line-height: 1.6;
 }
 
+h1 {
+    color: black;
+}
+
 header {
     display: flex;
     justify-content: space-between;
     align-items: center;
     background-color: #FFCF00;
     padding: 10px 20px;
+}
+
+.hero-image {
+    box-shadow: 3.5rem 3.5rem #017BAC;
+    border-radius: 50%;
 }
 
 nav ul {
@@ -263,7 +272,7 @@ input.input-search {
     background-color: rgb(181, 255, 181);
     font-size: 0.95rem;
     padding: 13px;
-  }
+}
 
 .span-invalid-feedback {
     color: #d93d3d;

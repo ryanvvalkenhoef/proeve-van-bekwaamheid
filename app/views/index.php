@@ -7,7 +7,7 @@
             <a href="#" class="grc-button">Naar keuzemodules</a>
         </div>
         <div class="hero-image">
-            <img src="path/to/hero-image.jpg" alt="Kinderen die plezier hebben">
+            <img src="<?php echo URLROOT . "/public/img/hero-image.png" ?>" alt="Kinderen die plezier hebben">
         </div>
     </section>
     <section class="modules">
