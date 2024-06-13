@@ -175,6 +175,8 @@ header {
 .hero-image {
     box-shadow: 3.5rem 3.5rem #017BAC;
     border-radius: 50%;
+    block-size: 295px;
+    inline-size: 295px;
 }
 
 nav ul {
