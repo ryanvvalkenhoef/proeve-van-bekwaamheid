@@ -3,7 +3,7 @@
     align-items: center;
     justify-content: space-between;
     padding: 20px;
-    background-color: #F4F4F4;
+    background-color: #FFF;
 }
 
 .hero-text {
@@ -11,33 +11,48 @@
 }
 
 .hero-image img {
-    max-width: 100%;
-    height: auto;
-}
-
-.grc-button {
-    display: inline-block;
-    padding: 10px 20px;
-    background-color: #FF5252;
-    color: #FFF;
-    text-decoration: none;
-    margin-top: 20px;
+    inline-size: 100%;
+    block-size: 100%;
+    object-fit: cover;
+    position: absolute;
+    top: 0;
+    left: 0;
 }
 
 .modules, .overview, .module-detail {
-    padding: 20px;
-    background-color: #FFF;
+    padding-block: 20px;
+    background-color: #F4F4F4;
+}
+
+.modules .grc-button {
+    margin-inline-start: 120px;
 }
 
 .module-grid {
     display: flex;
+    justify-content: space-between;
     flex-wrap: wrap;
     gap: 20px;
 }
 
+.module-grid a {
+    display: flex;
+    min-inline-size: calc(100% / 3 - 15px);
+}
+
 .module {
     background-color: #F4F4F4;
-    padding: 10px;
+    background-size: cover; /* or contain */
+    background-position: center;
+    background-repeat: no-repeat;
     flex: 1;
+    block-size: 680px;
+    padding: 10px;
     text-align: center;
+}
+
+@media (max-width: 999px) {
+    .module {
+        block-size: 480px;
+    }
 }

@@ -2,9 +2,9 @@
 <main>
     <section class="hero">
         <div class="hero-text">
-            <h1>Wat ga jij kiezen?</h1>
+            <h1>Wat ga jij<br /> kiezen?</h1>
             <p>Video-editen, wereldgerechten koken, bijzondere sporten beoefenen, nepnieuws leren herkennen: Rietvelduren (RVU) zijn anders dan anders! Je ontwikkelt je talenten, versterkt de band met school, leert omgaan met anderen en leert je uiten over wat er leeft en speelt in de samenleving waar je deel van uitmaakt.Kijk nu bij de keuzemodules en schrijf je in!</p>
-            <a href="#" class="grc-button">Naar keuzemodules</a>
+            <a href="keuzemodule-overzicht" class="grc-button">Naar keuzemodules</a>
         </div>
         <div class="hero-image">
             <img src="<?php echo URLROOT . "/public/img/hero-image.png" ?>" alt="Kinderen die plezier hebben">

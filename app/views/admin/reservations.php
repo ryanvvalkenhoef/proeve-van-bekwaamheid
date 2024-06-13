@@ -45,7 +45,7 @@ if (noAdminSession()) {
                         <tbody>
                             <?php
                             $start_index = (max(1, $data['page']) - 1) * $data['num_results_on_page'];
-                            $reservations = array_slice($data['modules'], $start_index, $data['num_results_on_page']);
+                            $reservations = array_slice($data['reservations'], $start_index, $data['num_results_on_page']);
                             foreach ($reservations as $reservation) {
                                 echo '<tr>';
                                 echo '<td>' . $reservation->module_name . '</td>';

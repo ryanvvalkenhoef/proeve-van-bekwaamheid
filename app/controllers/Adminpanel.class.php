@@ -99,13 +99,13 @@ class Adminpanel extends Controller {
         $data['page'] = isset($_GET['page']) && is_numeric($_GET['page']) ? $_GET['page'] : 1;
         
         if (isset($_SESSION['admin_id'])) {
-            $adminUser = $this->crudModel->read('users', $_SESSION['admin_id'], null);
+            $adminUser = $this->crudModel->read('users', $_SESSION['admin_id'], []);
     
             if ($adminUser) {
                 $data['adminName'] = $adminUser->name;
 
                 if (isset($_GET['search_req']) && $_GET['search_req'] != '') {
-                    $users = $this->crudModel->read('users', null, $_GET['search_req']);
+                    $users = $this->crudModel->read('users', null, array($_GET['search_req']));
                 } else {
                     $users = $this->crudModel->read('users');
                 }
@@ -150,13 +150,13 @@ class Adminpanel extends Controller {
         $data['page'] = isset($_GET['page']) && is_numeric($_GET['page']) ? $_GET['page'] : 1;
         
         if (isset($_SESSION['admin_id'])) {
-            $adminUser = $this->crudModel->read('users', $_SESSION['admin_id'], null);
+            $adminUser = $this->crudModel->read('users', $_SESSION['admin_id'], []);
     
             if ($adminUser) {
                 $data['adminName'] = $adminUser->name;
                 
                 if (isset($_GET['search_req']) && $_GET['search_req'] != '') {
-                    $reservations = $this->crudModel->read('reservations', null, $_GET['search_req']);
+                    $reservations = $this->crudModel->read('reservations', null, array($_GET['search_req']));
                 } else {
                     $reservations = $this->crudModel->read('reservations');
                 }
@@ -256,7 +256,7 @@ class Adminpanel extends Controller {
         $userId = $this->getUserId();
 
         // Retrieve data of the user from the database
-        $user = $this->crudModel->read('users', $userId, null);
+        $user = $this->crudModel->read('users', $userId, []);
 
         $data = [
             'role' => $user->role,

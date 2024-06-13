@@ -1,4 +1,11 @@
-<?php require APPROOT . '/views/includes/head.php'; ?>
+<?php
+require_once APPROOT . '/helpers/session_helper.php';
+// If there's no editor session, redirect to login page
+if (noEditorSession()) {
+    header("Location: " . URLROOT . "/editor/login");
+    exit();
+}
+?>
 <?php require APPROOT . '/views/includes/header_admin.php'; ?>
 <div class="container welcome-message">
     <p>Welkom <?php echo $data['editorName']; ?>!</p>

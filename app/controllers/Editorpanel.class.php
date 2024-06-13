@@ -91,13 +91,13 @@ class Editorpanel extends Controller {
         $data['page'] = isset($_GET['page']) && is_numeric($_GET['page']) ? $_GET['page'] : 1;
 
         if (isset($_SESSION['editor_id'])) {
-            $editorUser = $this->crudModel->read('users', $_SESSION['editor_id'], null);
+            $editorUser = $this->crudModel->read('users', $_SESSION['editor_id'], []);
     
             if ($editorUser) {
                 $data['editorName'] = $editorUser->name;
 
                 if (isset($_GET['search_req']) && $_GET['search_req'] != '') {
-                    $modules = $this->crudModel->read('elective_modules', null, $_GET['search_req']);
+                    $modules = $this->crudModel->read('elective_modules', null, array($_GET['search_req']));
                 } else {
                     $modules = $this->crudModel->read('elective_modules');
                 }
@@ -132,7 +132,7 @@ class Editorpanel extends Controller {
         session_start();
 
         // Retrieve data of the user from the database
-        $module = $this->crudModel->read('elective_modules', $_GET['upd'], null);
+        $module = $this->crudModel->read('elective_modules', $_GET['upd'], []);
 
         $data = [
             'title' => $module->title,
@@ -157,10 +157,10 @@ class Editorpanel extends Controller {
             ];
 
             if (isset($_SESSION['editor_id'])) {
-                $editorUser = $this->crudModel->read('users', $_SESSION['editor_id'], null);
+                $editorUser = $this->crudModel->read('users', $_SESSION['editor_id'], []);
         
                 if ($editorUser) {
-                    $amountRegistered = $this->crudModel->read('elective_modules', $_GET['upd'], null)->amount_registered;
+                    $amountRegistered = $this->crudModel->read('elective_modules', $_GET['upd'], [])->amount_registered;
 
                     // Register user from model function
                     $module = $this->crudModel->update('elective_modules', array(
@@ -213,7 +213,7 @@ class Editorpanel extends Controller {
             ];
 
             if (isset($_SESSION['editor_id'])) {
-                $editorUser = $this->crudModel->read('users', $_SESSION['editor_id'], null);
+                $editorUser = $this->crudModel->read('users', $_SESSION['editor_id'], []);
         
                 if ($editorUser) {
                     // Register user from model function

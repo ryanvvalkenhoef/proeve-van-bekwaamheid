@@ -7,6 +7,7 @@ document.querySelector('.input-search').addEventListener('input', function() {
         xhr.onload = function () {
             if (xhr.status === 200) {
                 // Process the received data and update the table
+                console.log(xhr.responseText);
                 const userData = JSON.parse(xhr.responseText); {
                     updateTable(userData);
                     paginationUpdate(userData.length, window.pageResultsNum);

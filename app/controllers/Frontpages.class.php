@@ -25,8 +25,9 @@ class Frontpages extends Controller {
 
         $data['modules'] = ($modules) ? $modules : [];
 
+
         $this->view('includes/head', $data);
-        $this->view('index');
+        $this->view('index', $data);
     }
 
     public function keuzemodule_overzicht() {
@@ -37,12 +38,10 @@ class Frontpages extends Controller {
 
         $modules = $this->crudModel->read('elective_modules');
 
-        var_dump($modules);
-
         $data['modules'] = ($modules) ? $modules : [];
 
         $this->view('includes/head', $data);
-        $this->view('keuzemodule-overzicht');
+        $this->view('keuzemodule-overzicht', $data);
     }
 
     public function keuzemodule() {
@@ -56,7 +55,7 @@ class Frontpages extends Controller {
         $data['module'] = ($module) ? $module : [];
 
         $this->view('includes/head', $data);
-        $this->view('keuzemodule');
+        $this->view('keuzemodule', $data);
     }
 
     public function inschrijven() {
@@ -65,7 +64,7 @@ class Frontpages extends Controller {
         ];
 
         $this->view('includes/head', $data);
-        $this->view('inschrijven');
+        $this->view('inschrijven', $data);
     }
 
     public function update_tabledata() {
