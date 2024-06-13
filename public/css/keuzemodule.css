@@ -1,0 +1,57 @@
+main {
+    padding: 20px;
+}
+
+.overview h1 {
+    font-size: 72px;
+    font-weight: normal;
+    margin-bottom: 20px;
+}
+
+.overview p {
+    font-size: 24px;
+    font-weight: normal;
+    margin-bottom: 40px;
+}
+
+.module-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 20px;
+}
+
+.module {
+    position: relative;
+    background-size: cover;
+    background-position: center;
+    height: 300px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    color: white;
+    text-decoration: none;
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+.module h3 {
+    margin: 0;
+    padding: 20px;
+    background: rgba(0, 0, 0, 0.6);
+    font-size: 24px;
+    font-weight: normal;
+}
+
+.grc-label {
+    position: absolute;
+    top: 0;
+    left: 0;
+    background: #FF0000;
+    padding: 10px;
+    border-radius: 0 0 8px 0;
+}
+
+.grc-label h4 {
+    margin: 0;
+    font-size: 18px;
+}

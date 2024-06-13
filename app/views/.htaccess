@@ -1,0 +1,9 @@
+<IfModule mod_rewrite.c>
+    RewriteEngine On
+    <IfModule mod_negotiation.c>
+        Options -MultiViews
+    </IfModule>
+
+    # Set pretty url for elective module request
+    RewriteRule ^keuzemodule/([0-9]+)/([0-9]+)/([0-9A-Za-z\-_]+)$ keuzemodule.php?year=$1&month=$2&slug=$3 [NC,L]
+</IfModule>

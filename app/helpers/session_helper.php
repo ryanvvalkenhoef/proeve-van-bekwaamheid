@@ -1,7 +1,10 @@
 <?php
-    session_start();
+    function noAdminSession() {
+        // Return boolean based on whether a admin session exists or not
+        return (!isset($_SESSION['admin_id']));
+    }
 
-    function isLoggedIn() {
-        // Return boolean based on whether a customer-session exists or not
-        return (isset($_SESSION['customer_id']));
+    function noEditorSession() {
+        // Return boolean based on whether a editor session exists or not
+        return (!isset($_SESSION['editor_id']));
     }
