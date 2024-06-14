@@ -200,23 +200,98 @@ header nav {
     border-radius: 7px;
 }
 
+.grc-button-secondary {
+    background-color: transparent;
+    color: black;
+}
+
 .hero {
+    padding-block: 100px;
+    background-color: #F4F4F4;
+}
+
+.hero-text {
     margin-inline-start: 100px;
 }
 
 .hero-image {
     box-shadow: 3.5rem 3.5rem #017BAC;
     border-radius: 50%;
-    block-size: 580px;
-    inline-size: 580px;
     margin-block: 60px;
     margin-inline: 60px;
-    overflow: hidden;
     position: relative;
+    inline-size: 100%;
+    max-inline-size: 90vh;
+    aspect-ratio: 1;
+    overflow: hidden;
+}
+
+.hero-image img {
+    inline-size: 100%;
+    block-size: 100%;
+    object-fit: cover;
+    position: absolute;
+    top: 0;
+    left: 0;
 }
 
 .module-grid {
-    margin-inline: 30px;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(400px, 1fr));
+    grid-auto-rows: minmax(100px, auto);
+    grid-gap: 20px;
+    width: 100%;
+    max-width: 100vw;
+    margin: 0 auto;
+    box-sizing: border-box;
+    padding: 30px;
+}
+
+.module-grid a {
+    text-decoration: none;
+    display: flex;
+    min-inline-size: calc(100% / 3 - 15px);
+}
+
+.module {
+    display: flex;
+    background-color: #F4F4F4;
+    background-size: cover; /* or contain */
+    background-position: center;
+    background-repeat: no-repeat;
+    flex: 1;
+    block-size: 580px;
+    padding: 50px;
+    text-align: center;
+}
+
+.module h3, .module .grc-label {
+    inline-size: fit-content;
+}
+
+.module h3 {
+    margin-top: auto;
+    color: white;
+    margin-block-start: 10px;
+    font-size: 2.2rem;
+}
+
+.module .grc-label {
+    font-size: 6.5rem;
+    color: #391400;
+    background-color: white;
+    padding: 0px 15px;
+    border-radius: 30px;
+    inline-size: fit-content;
+    block-size: 50px;
+}
+
+.metadata-wrapper {
+    align-self: flex-end;
+}
+
+.module .grc-label h4 {
+    line-height: 50px;
 }
 
 .hero-text p {
@@ -408,6 +483,12 @@ footer {
 }
 
 /* Responsive Styles */
+@media (min-width: 1430px) {
+    .module {
+        block-size: 680px;
+    }
+}
+
 @media (max-width: 999px) {
     .hero {
         flex-direction: column;

@@ -50,7 +50,7 @@ class Frontpages extends Controller {
             'module' => []
         ];
 
-        $module = $this->crudModel->read('elective_modules', null, array($_GET['year'], $_GET['month'], $_GET['slug']));
+        $module = $this->crudModel->getModuleBy($_GET['year'], $_GET['month'], $_GET['slug']);
 
         $data['module'] = ($module) ? $module : [];
 
@@ -60,8 +60,12 @@ class Frontpages extends Controller {
 
     public function inschrijven() {
         $data = [
-            'title' => 'Inschrijven'
+            'title' => 'Inschrijven',
+            'cannot_enroll' => false
         ];
+
+        $data['cannot_enroll'] = 
+
 
         $this->view('includes/head', $data);
         $this->view('inschrijven', $data);

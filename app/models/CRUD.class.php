@@ -6,22 +6,18 @@ class CRUD extends Database {
     public function read($table, $id = null, $searchParams = []) {
         $addition = $id ? " WHERE `id`=:id" : "";
         $search = '';
-        if ($searchParams != []) {
-            if ($searchParams !== [] && is_array($searchParams)) {
-                switch ($table) {
-                    case 'users':
-                        $search = " WHERE `name` LIKE :searchParam OR `email` LIKE :searchParam OR `username` LIKE :searchParam";
-                      break;
-                    case 'reservations':
-                        $search = " WHERE reservations.reserved_for LIKE :searchParam OR reservations.receipt LIKE :searchParam OR elective_modules.title LIKE :searchParam";
-                      break;
-                    case 'elective_modules':
-                        $search = " WHERE `title` LIKE :searchParam OR `author` LIKE :searchParam OR `category` LIKE :searchParam";
-                      break;
-                  }
-            } else if (count($searchParams) > 1) {
-                $search = " WHERE `creation_date` LIKE :searchParam1 AND `module_name` LIKE :searchParam2 LIMIT 1";
-            }
+        if ($searchParams !== [] && is_array($searchParams)) {
+            switch ($table) {
+                case 'users':
+                    $search = " WHERE `name` LIKE :searchParam OR `email` LIKE :searchParam OR `username` LIKE :searchParam";
+                  break;
+                case 'reservations':
+                    $search = " WHERE reservations.reserved_for LIKE :searchParam OR reservations.receipt LIKE :searchParam OR elective_modules.title LIKE :searchParam";
+                  break;
+                case 'elective_modules':
+                    $search = " WHERE `title` LIKE :searchParam OR `author` LIKE :searchParam OR `category` LIKE :searchParam";
+                  break;
+              }
         }
         $query = ($table == 'reservations') ? "SELECT reservations.*, elective_modules.title AS module_title FROM reservations JOIN elective_modules ON reservations.module_id = elective_modules.id" : "SELECT * FROM " . $table;
 
@@ -35,15 +31,10 @@ class CRUD extends Database {
     
             // Execute the query if $id is not null and bind the parameter :id
             if ($id !== null) $stmt->bindParam(':id', $id);
-            if ($searchParams !== []) {
+            if (!empty($searchParams)) {
                 if (count($searchParams) == 1) {
                     $likeParam = '%' . $searchParams[0] . '%';
                     $stmt->bindParam(':searchParam', $likeParam, PDO::PARAM_STR);
-                } else {
-                    foreach ($searchParams as $index => $param) {
-                        $likeParam = '%' . $param . '%';
-                        $stmt->bindParam(':searchParam' . strval($index+1), $likeParam, PDO::PARAM_STR);
-                    }
                 }
             }
     
@@ -63,6 +54,35 @@ class CRUD extends Database {
         } catch (PDOException $e) {
             // Catch any PDO exceptions and display the error message
             die($e->getMessage());
+        }
+    }
+
+    public function getModuleBy($year, $month, $slug) {
+        $query = "SELECT * FROM elective_modules WHERE YEAR(creation_date) = :year AND MONTH(creation_date) = :month AND title LIKE :slug";
+    
+        try {
+            // Prepare the query
+            $stmt = $this->conn->prepare($query);
+    
+            // Bind parameters
+            $stmt->bindValue(':year', $year, PDO::PARAM_INT);  // Assuming $year is an integer
+            $stmt->bindValue(':month', $month, PDO::PARAM_INT);  // Assuming $month is an integer
+            $stmt->bindValue(':slug', '%' . $slug . '%', PDO::PARAM_STR);
+    
+            // Execute the query
+            if (!$stmt->execute()) {
+                $errorInfo = $stmt->errorInfo();
+                throw new Exception("Query execution failed: " . $errorInfo[2]);
+            }
+    
+            // Fetch the result
+            $result = $stmt->fetchAll(PDO::FETCH_OBJ);
+    
+            return $result;
+        } catch (PDOException $e) {
+            die("PDO Error: " . $e->getMessage());
+        } catch (Exception $e) {
+            die("Error: " . $e->getMessage());
         }
     }
 

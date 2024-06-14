@@ -4,8 +4,8 @@
     </div>
     <nav>
         <ul>
-            <li><a href="/">Home</a></li>
-            <li><a href="/keuzemodule-overzicht">Keuzemodules</a></li>
+            <li><a href=<?php echo URLROOT; ?>>Home</a></li>
+            <li><a href="keuzemodule-overzicht">Keuzemodules</a></li>
         </ul>
     </nav>
 </header>

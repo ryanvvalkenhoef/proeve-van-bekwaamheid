@@ -19,17 +19,19 @@
                 if ($count >= 3) break;
                 $imageData = base64_encode($module->image);
                 $creationDate = explode('-', $module->creation_date);
-                echo '<a href="/keuzemodule/' . $creationDate[0] . '/' . $creationDate[1] . '/' . $module->title . '">';
+                echo '<a href="keuzemodule?year=' . $creationDate[0] . '&month=' . $creationDate[1] . '&slug=' . $module->title . '">';
                 echo '<div class="module" style="background-image: url(\'data:image/png;base64,' . $imageData . '\');">';
+                echo '<div class="metadata-wrapper">';
                 echo '<div class="grc-label"><h4>' . $module->category . '</h4></div>';
                 echo '<h3>' . $module->title . '</h3>';
+                echo '</div>';
                 echo '</div>';
                 echo '</a>';
                 $count++;
             }
             ?>
         </div>
-        <form action="./keuzemodule-overzicht">
+        <form action="keuzemodule-overzicht">
             <input type="submit" class="grc-button grc-button-secondary" value="Alle keuzemodules" />
         </form>
     </section>

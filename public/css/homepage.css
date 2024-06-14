@@ -10,15 +10,6 @@
     max-width: 50%;
 }
 
-.hero-image img {
-    inline-size: 100%;
-    block-size: 100%;
-    object-fit: cover;
-    position: absolute;
-    top: 0;
-    left: 0;
-}
-
 .modules, .overview, .module-detail {
     padding-block: 20px;
     background-color: #F4F4F4;
@@ -33,22 +24,6 @@
     justify-content: space-between;
     flex-wrap: wrap;
     gap: 20px;
-}
-
-.module-grid a {
-    display: flex;
-    min-inline-size: calc(100% / 3 - 15px);
-}
-
-.module {
-    background-color: #F4F4F4;
-    background-size: cover; /* or contain */
-    background-position: center;
-    background-repeat: no-repeat;
-    flex: 1;
-    block-size: 680px;
-    padding: 10px;
-    text-align: center;
 }
 
 @media (max-width: 999px) {

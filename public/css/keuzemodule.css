@@ -1,5 +1,9 @@
 main {
     padding: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center; 
+    box-sizing: border-box;
 }
 
 .overview h1 {
@@ -12,6 +16,15 @@ main {
     font-size: 24px;
     font-weight: normal;
     margin-bottom: 40px;
+}
+
+.module-detail {
+    inline-size: 862px;
+    text-align: center;
+}
+
+.module-detail > * {
+    text-align: left;
 }
 
 .module-grid {
@@ -40,6 +53,29 @@ main {
     background: rgba(0, 0, 0, 0.6);
     font-size: 24px;
     font-weight: normal;
+}
+
+.metadata-wrapper {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin-bottom: 20px;
+}
+
+.grc-property {
+    font-size: 24px;
+    font-weight: normal;
+    margin-bottom: 10px;
+    inline-size: fit-content;
+}
+
+.grc-value {
+    font-weight: bold;
+    margin-left: 10px;
+}
+
+.grc-text-content {
+    inline-size: 862px;
 }
 
 .grc-label {
