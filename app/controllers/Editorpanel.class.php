@@ -15,7 +15,6 @@ class Editorpanel extends Controller {
     public function login() {
         session_start();
         $data = [
-            'title' => 'Inloggen',
             'username_email' => '',
             'password' => '',
             'errors' => [],

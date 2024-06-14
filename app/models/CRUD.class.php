@@ -57,17 +57,26 @@ class CRUD extends Database {
         }
     }
 
-    public function getModuleBy($year, $month, $slug) {
-        $query = "SELECT * FROM elective_modules WHERE YEAR(creation_date) = :year AND MONTH(creation_date) = :month AND title LIKE :slug";
+    public function getModuleBy($year = null, $month = null, $slug = null, $title = null) {
+        $query = "";
+        if ($title == null) {
+            $query = "SELECT * FROM elective_modules WHERE YEAR(creation_date) = :year AND MONTH(creation_date) = :month AND title LIKE :slug";
+        } else {
+            $query = "SELECT * FROM elective_modules WHERE title = :title";
+        }
     
         try {
             // Prepare the query
             $stmt = $this->conn->prepare($query);
     
             // Bind parameters
-            $stmt->bindValue(':year', $year, PDO::PARAM_INT);  // Assuming $year is an integer
-            $stmt->bindValue(':month', $month, PDO::PARAM_INT);  // Assuming $month is an integer
-            $stmt->bindValue(':slug', '%' . $slug . '%', PDO::PARAM_STR);
+            if ($title == null) {
+                $stmt->bindValue(':year', $year, PDO::PARAM_INT);  // Assuming $year is an integer
+                $stmt->bindValue(':month', $month, PDO::PARAM_INT);  // Assuming $month is an integer
+                $stmt->bindValue(':slug', '%' . $slug . '%', PDO::PARAM_STR);
+            } else {
+                $stmt->bindValue(':title', $title, PDO::PARAM_STR);
+            }
     
             // Execute the query
             if (!$stmt->execute()) {
@@ -83,6 +92,25 @@ class CRUD extends Database {
             die("PDO Error: " . $e->getMessage());
         } catch (Exception $e) {
             die("Error: " . $e->getMessage());
+        }
+    }
+
+    public function moduleAvailability($id) {
+        $query = "SELECT id, title, (amount_registered < registration_places) AS isAvailable FROM elective_modules WHERE `id` = :id";
+
+        try {
+            $this->preparedStmt($query);
+
+            if ($id !== null) $this->bind(':id', $id, PDO::PARAM_STR);
+
+            // Execute the query
+            if (!$this->execute()) {
+                print_r($this->errorInfo());
+            } else {
+                return $this->single();
+            }
+        } catch (PDOException $e) {
+            die ($e->getMessage());
         }
     }
 
@@ -165,8 +193,13 @@ class CRUD extends Database {
         // Make query for database
         $query = "INSERT INTO " . $table . " ";
         // Query parts for insertion of elective modules
-        $query .= "(`id`, `title`, `author`, `author_id`, `creation_date`, `image`, `category`, `text_content`, `amount_registered`, `registration_places`) ";
-        $query .= "VALUES(NULL, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
+        if ($table == 'elective_modules') {
+            $query .= "(`id`, `title`, `author`, `author_id`, `creation_date`, `image`, `category`, `text_content`, `amount_registered`, `registration_places`) ";
+            $query .= "VALUES(NULL, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
+        } else if ($table == 'reservations') {
+            $query .= "(`id`, `module_id`, `reserved_for`, `reserved_at`, `receipt`, `email`, `phone_number`, `comments`) ";
+            $query .= "VALUES(NULL, ?, ?, ?, ?, ?, ?, ?)";
+        }
 
         try {
             $stmt = $this->conn->prepare($query);
@@ -181,7 +214,6 @@ class CRUD extends Database {
         }
 
         $this->__destruct();
-
     }
 
     public function delete($table) {

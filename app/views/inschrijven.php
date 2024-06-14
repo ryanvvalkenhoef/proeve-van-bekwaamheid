@@ -17,7 +17,7 @@
 
                 <label for="comments">Aanvullende opmerkingen</label>
                 <textarea id="comments" name="comments"></textarea>
-
+                <input type="hidden" name="module_id" value="<?php echo $_GET['module_id']; ?>">
                 <button type="submit" class="cta-button">Inschrijven</button>
             </form>
         </section>

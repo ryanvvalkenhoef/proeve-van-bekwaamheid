@@ -49,7 +49,7 @@ if (noAdminSession()) {
                             foreach ($reservations as $reservation) {
                                 echo '<tr>';
                                 echo '<td>' . $reservation->module_name . '</td>';
-                                echo '<td>' . $reservation->reserved_for. '</td>';
+                                echo '<td>' . $reservation->reserved_for . '</td>';
                                 echo '<td>' . $reservation->reserved_at . '</td>';
                                 echo '<td>' . $reservation->receipt . '</td>';
                                 echo '<td>';

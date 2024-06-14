@@ -1,5 +1,6 @@
 <?php
     // Require libraries from folder libraries
+    require_once __DIR__ . '/../vendor/autoload.php';
     require_once 'libraries/Core.class.php';
     require_once 'libraries/Controller.class.php';
     require_once 'libraries/Database.class.php';
