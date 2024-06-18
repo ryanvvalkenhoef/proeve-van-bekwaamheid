@@ -148,8 +148,19 @@ class CRUD extends Database {
 
         try {
             $stmt = $this->conn->prepare($query);
+
+            $stmt->bindParam(1, $inputs[0]);
+            $stmt->bindParam(2, $inputs[1]);
+            $stmt->bindParam(3, $inputs[2]);
+            $stmt->bindParam(4, $inputs[3]);
+            $stmt->bindParam(5, $inputs[4], PDO::PARAM_LOB); // Bind BLOB as PDO::PARAM_LOB
+            $stmt->bindParam(6, $inputs[5]);
+            $stmt->bindParam(7, $inputs[6]);
+            $stmt->bindParam(8, $inputs[7]);
+            $stmt->bindParam(9, $inputs[8]);
+
             // Insert item
-            if ($stmt->execute($inputs)) {
+            if ($stmt->execute()) {
                 return true;
             } else {
                 return false;
