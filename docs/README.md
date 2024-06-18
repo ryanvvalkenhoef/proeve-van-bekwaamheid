@@ -2,6 +2,8 @@
 
 **Grafisch Lyceum Utrecht** is een school voor onder andere webdevelopers en engineers in opleiding. Deze specifieke repository is gemaakt door Ryan van Valkenhoef, een student van deze school. De repository is een examenproduct, alleen bedoeld voor de examinatoren die het moeten beoordelen.
 
+Gelieve alleen de main branch te beoordelen, gezien deze de laatste wijzigingen van het examenproject bevat.
+
 ### **Casus**
 De casus van het examen betreft een aanbieder van keuzemodules die vraagt om een kennis- en (bijbehorend) adminportaal. Deze moeten gericht zijn op het verschaffen van inhoud over het inschrijven voor de Rietvelduren, die zich richt op het faciliteren van een gevarieerd programma voor leerlingen van het Gerrit Rietveld College.
 
